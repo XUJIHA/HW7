@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>練習7</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function ShowName(){
+	var name=document.getElementById("str").value;
+	document.form1.result.value="姓名:"+name;
+}
+function ShowGender(){
+	var name=document.getElementById("str").value;
+	document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value;
+
+}
+function ShowAge(){
+	var name=document.getElementById("str").value;
+	var age=document.getElementById("ages").value;
+	document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age;
+}
+function ShowPassword(){
+	var name=document.getElementById("str").value;
+	var age=document.getElementById("ages").value;
+	var pw1=document.getElementById("pw").value;
+	var pw2=document.getElementById("passw").value;
+	if ((document.form1.pw1.value.length  <6) && (document.form1.pw2.value.length  <6)){
+		document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼至少要6個字元";
+	}
+	else if (document.form1.pw1.value != document.form1.pw2.value){
+		document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼不合";
+	}
+	else document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼OK";
+}
+function ShowClass(){
+	var name=document.getElementById("str").value;
+	var age=document.getElementById("ages").value;
+	var pw1=document.getElementById("pw").value;
+	var pw2=document.getElementById("passw").value;
+	var class1=document.getElementById("class").value;
+	if (document.form1.pw1.value != document.form1.pw2.value){
+		document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼不合"+" "+"班級:"+class1;
+	}
+	else if ((document.form1.pw1.value.length  <6) || (document.form1.pw2.value.length  <6)){
+		document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼至少要6個字元"+" "+"班級:"+class1;
+	}
+	else document.form1.result.value="姓名:"+name+" "+"性別:"+document.form1.gender.value+" "+"年齡:"+age+" "+"密碼OK"+" "+"班級:"+class1;
+}
+</script>
+<!--form name=form1-->
+<div class="container">
+<form class="form-horizontal" name=form1><BR>
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">輸入結果</label>
+    	<div class="col-md-10">
+      	<input type=text id=result class="form-control"><BR>
+    	</div>
+    </div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">姓名</label>
+    	<div class="col-md-10">
+      	<input type=text name=name id=str class="form-control" onchange="ShowName()"><BR>
+       	</div>
+    </div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">性別</label>
+    	<div class="col-md-10">
+		<label class="radio-inline">
+			<input type="radio" name="gender" id="Radio" value="男生" onchange="ShowGender()">男生
+		</label>
+		<label class="radio-inline">
+    		<input type="radio" name="gender" id="Radio" value="女生" onchange="ShowGender()">女生
+		</label><BR>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">年齡</label>
+    	<div class="col-md-10">
+		<input type=number name=age id=ages onkeypress="if((event.keyCode < 48)||(event.keyCode > 57)) return false;" class="form-control" onchange="ShowAge()"><BR>
+		 </div>
+    </div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">輸入密碼</label>
+    	<div class="col-md-10">
+		<input type=password name=pw1 id=pw class="form-control" onchange="ShowPassword()"><BR>
+		</div>
+    </div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">重新輸入</label>
+    	<div class="col-md-10">
+		<input type=password name=pw2 id=passw class="form-control" onchange="ShowPassword()"><BR>
+		</div>
+    </div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+    	<label class="col-md-1 control-label">班級</label>
+    	<div class="col-md-10">
+		<Select name=menu id=class onchange="ShowClass()">
+		<option>請選班級<option>資1A<option>資1B<option>資2A<option>資2B<option>資3A<option>資3B<option>資4A<option>資4B
+		</Select><BR>
+		</div>
+    </div>
+</div>
+</form>
+</div>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
